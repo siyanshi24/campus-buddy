@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand"><span>✦</span> Campus Buddy</div>
+
+            <p class="nav-label">MENU</p>
+            <button class="nav-button active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+            <button class="nav-button" data-page="subjects">▤ <span>Subjects & Attendance</span></button>
+
+            <div class="sidebar-note">
+                <strong>Stay on track</strong>
+                <p>Keep your classes and attendance in one place.</p>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <p class="small-label">YOUR COLLEGE SPACE</p>
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="date-box" id="todayDate"></div>
+            </header>
+
+            <section class="welcome">
+                <p class="small-label">WELCOME TO CAMPUS BUDDY</p>
+                <h2>Your college, a little more organized.</h2>
+                <p>Check your classes and keep an eye on your attendance.</p>
+            </section>
+
+            <section class="stats">
+                <article class="stat-card">
+                    <span class="stat-icon purple">▤</span>
+                    <p>Subjects</p>
+                    <strong id="subjectCount">0</strong>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-icon green">✓</span>
+                    <p>Overall attendance</p>
+                    <strong id="overallAttendance">0%</strong>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-icon orange">!</span>
+                    <p>Below 75%</p>
+                    <strong id="lowAttendance">0</strong>
+                </article>
+            </section>
+
+            <section class="page active" id="dashboard">
+                <div class="section-title">
+                    <div>
+                        <p class="small-label">YOUR SCHEDULE</p>
+                        <h2>Today's classes</h2>
+                    </div>
+                </div>
+                <div class="class-list" id="todayClasses"></div>
+            </section>
+
+            <section class="page" id="subjects">
+                <div class="section-title">
+                    <div>
+                        <p class="small-label">MANAGE YOUR CLASSES</p>
+                        <h2>Subjects & Attendance</h2>
+                    </div>
+                </div>
+
+                <form class="subject-form" id="subjectForm">
+                    <label>Subject name
+                        <input id="subjectName" type="text" placeholder="e.g. Mathematics" required>
+                    </label>
+
+                    <label>Class day
+                        <select id="classDay" required>
+                            <option value="">Choose a day</option>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                            <option>Sunday</option>
+                        </select>
+                    </label>
+
+                    <label>Class time
+                        <input id="classTime" type="time" required>
+                    </label>
+
+                    <label>Total classes held
+                        <input id="totalClasses" type="number" min="0" value="0" required>
+                    </label>
+
+                    <label>Classes attended
+                        <input id="attendedClasses" type="number" min="0" value="0" required>
+                    </label>
+
+                    <button class="primary-button" id="saveButton" type="submit">＋ Add subject</button>
+                </form>
+
+                <div class="subject-list" id="subjectList"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
